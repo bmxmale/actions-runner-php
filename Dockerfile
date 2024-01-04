@@ -11,6 +11,7 @@ ENV VERSION_PHPUNIT=10.5.3
 ENV VERSION_PHPCOV=9.0.2
 ENV VERSION_PHPLOC=7.0.2
 ENV VERSION_PHPCPD=6.0.3
+ENV VERSION_PHP_CS_FIXER=3.46.0
 
 RUN sudo apt update
 
@@ -51,5 +52,8 @@ RUN wget -c https://phar.phpunit.de/phploc-${VERSION_PHPLOC}.phar ; \
 
 RUN wget -c https://phar.phpunit.de/phpcpd-${VERSION_PHPCPD}.phar ; \
     sudo mv phpcpd-${VERSION_PHPCPD}.phar /usr/local/bin/phpcpd
+
+RUN wget -c https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v${VERSION_PHP_CS_FIXER}/php-cs-fixer.phar ; \
+    sudo mv php-cs-fixer.phar /usr/local/bin/php-cs-fixer
 
 RUN sudo chmod a+x /usr/local/bin/*
